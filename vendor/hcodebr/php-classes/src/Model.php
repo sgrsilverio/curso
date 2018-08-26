@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: shalon
- * Date: 29/07/2018
- * Time: 15:12
- */
 
 namespace Hcode;
 
@@ -20,7 +14,7 @@ class Model
 
         switch ($method) {
             Case "get";
-            $this->values[$fieldName];
+            return (isset($this->values[$fieldName]))?$this->values[$fieldName] : NULL;
             break;
             case "set";
             $this->values[$fieldName] = $args[0];
