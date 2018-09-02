@@ -23,6 +23,8 @@ class Product extends Model {
         return $list;
     }
 
+
+
     public function Save(){
         $sql = new Sql();
 
