@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: shalon
- * Date: 08/09/2018
- * Time: 16:46
- */
 
 namespace Hcode\Model;
 

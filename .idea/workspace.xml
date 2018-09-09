@@ -7,7 +7,6 @@
     <list default="true" id="5b4650e1-aad5-45a4-92cb-c67fd5f1361e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Cart.php" afterPath="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Cart.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/User.php" afterPath="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/User.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,7 +21,7 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5347">
+            <state relative-caret-position="275">
               <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
               <folding>
                 <element signature="e#93#108#0#PHP" expanded="true" />
@@ -34,7 +33,7 @@
       <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/header.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1802">
+            <state relative-caret-position="2650">
               <caret line="106" column="40" lean-forward="false" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
               <folding />
             </state>
@@ -44,18 +43,18 @@
       <file leaf-file-name="Model.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="500">
               <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="425">
+              <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="27" />
               <folding>
                 <element signature="e#31#48#0#PHP" expanded="true" />
                 <marker date="1536457096416" expanded="true" signature="1318:1364" ph="SELECT * FRO... tb_users" />
@@ -70,15 +69,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cart.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Cart.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Cart.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1028">
-              <caret line="79" column="5" lean-forward="false" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
+            <state relative-caret-position="200">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
-                <element signature="e#114#132#0#PHP" expanded="true" />
-                <marker date="1536457848506" expanded="true" signature="1202:1259" ph="SELECT * FRO... tb_carts" />
-                <marker date="1536457848506" expanded="true" signature="1513:1558" ph="SELECT * FRO... tb_carts" />
+                <element signature="e#31#49#0#PHP" expanded="true" />
+                <marker date="1536509191835" expanded="true" signature="1119:1176" ph="SELECT * FRO... tb_carts" />
+                <marker date="1536509191835" expanded="true" signature="1430:1475" ph="SELECT * FRO... tb_carts" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Category.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Category.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2700">
+              <caret line="110" column="53" lean-forward="false" selection-start-line="110" selection-start-column="53" selection-end-line="110" selection-end-column="53" />
+              <folding>
+                <marker date="1535932121373" expanded="true" signature="214:262" ph="select * fro... tb_categories" />
+                <marker date="1535932121373" expanded="true" signature="714:772" ph="SELECT * FRO... tb_categories" />
+                <marker date="1535932121373" expanded="true" signature="949:1005" ph="DELETE FROM " />
+                <marker date="1535932121373" expanded="true" signature="1672:2006" ph="select * FRO... tb_products" />
+                <marker date="1535932121373" expanded="true" signature="1756:2005" ph="select a.idp... tb_products" />
+                <marker date="1535932121373" expanded="true" signature="2156:2494" ph="select * FRO... tb_products" />
+                <marker date="1535932121373" expanded="true" signature="2244:2493" ph="select a.idp... tb_products" />
+                <marker date="1535932121373" expanded="true" signature="2711:2801" ph="INSERT INTO tb_categoriesproducts... " />
+                <marker date="1535932121373" expanded="true" signature="3111:3201" ph="DELETE FROM " />
+                <marker date="1535932121373" expanded="true" signature="3512:3790" ph="SELECT SQL_C... tb_products" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Product.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Product.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3200">
+              <caret line="128" column="91" lean-forward="false" selection-start-line="128" selection-start-column="91" selection-end-line="128" selection-end-column="91" />
+              <folding>
+                <element signature="e#32#50#0#PHP" expanded="true" />
+                <marker date="1536348906942" expanded="true" signature="213:258" ph="select * fro... tb_products" />
+                <marker date="1536348906942" expanded="true" signature="1238:1292" ph="SELECT * FRO... tb_categories" />
+                <marker date="1536348906942" expanded="true" signature="1467:1519" ph="DELETE FROM " />
+                <marker date="1536348906942" expanded="true" signature="3271:3319" ph="SELECT * FRO... tb_products" />
+                <marker date="1536348906942" expanded="true" signature="3271:3327" ph="SELECT * FRO... tb_products" />
+                <marker date="1536348906942" expanded="true" signature="3509:3618" ph="SELECT * FRO... tb_categories" />
+                <marker date="1536348906942" expanded="true" signature="3509:3635" ph="SELECT * FRO... tb_categories" />
               </folding>
             </state>
           </provider>
@@ -164,10 +203,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1296" />
-    <option name="height" value="696" />
+    <option name="x" value="-11" />
+    <option name="y" value="-11" />
+    <option name="width" value="1942" />
+    <option name="height" value="1042" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -304,8 +343,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -434,16 +473,18 @@
       <workItem from="1536429144205" duration="6684000" />
       <workItem from="1536440467564" duration="5618000" />
       <workItem from="1536455918599" duration="2199000" />
+      <workItem from="1536508159442" duration="1071000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165935000" />
+    <option name="totallyTimeSpent" value="167006000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="696" extended-state="6" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1859375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24166666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -743,13 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1836">
-          <caret line="110" column="53" lean-forward="false" selection-start-line="110" selection-start-column="53" selection-end-line="110" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/product-detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
@@ -757,9 +791,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/hcodecart.php" />
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding>
+            <element signature="e#93#108#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2650">
+          <caret line="106" column="40" lean-forward="false" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Cart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#31#49#0#PHP" expanded="true" />
+            <marker date="1536509191835" expanded="true" signature="1119:1176" ph="SELECT * FRO... tb_carts" />
+            <marker date="1536509191835" expanded="true" signature="1430:1475" ph="SELECT * FRO... tb_carts" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2700">
+          <caret line="110" column="53" lean-forward="false" selection-start-line="110" selection-start-column="53" selection-end-line="110" selection-end-column="53" />
+          <folding>
+            <marker date="1535932121373" expanded="true" signature="214:262" ph="select * fro... tb_categories" />
+            <marker date="1535932121373" expanded="true" signature="714:772" ph="SELECT * FRO... tb_categories" />
+            <marker date="1535932121373" expanded="true" signature="949:1005" ph="DELETE FROM " />
+            <marker date="1535932121373" expanded="true" signature="1672:2006" ph="select * FRO... tb_products" />
+            <marker date="1535932121373" expanded="true" signature="1756:2005" ph="select a.idp... tb_products" />
+            <marker date="1535932121373" expanded="true" signature="2156:2494" ph="select * FRO... tb_products" />
+            <marker date="1535932121373" expanded="true" signature="2244:2493" ph="select a.idp... tb_products" />
+            <marker date="1535932121373" expanded="true" signature="2711:2801" ph="INSERT INTO tb_categoriesproducts... " />
+            <marker date="1535932121373" expanded="true" signature="3111:3201" ph="DELETE FROM " />
+            <marker date="1535932121373" expanded="true" signature="3512:3790" ph="SELECT SQL_C... tb_products" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
+        <state relative-caret-position="3200">
           <caret line="128" column="91" lean-forward="false" selection-start-line="128" selection-start-column="91" selection-end-line="128" selection-end-column="91" />
           <folding>
             <element signature="e#32#50#0#PHP" expanded="true" />
@@ -774,26 +866,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1802">
-          <caret line="106" column="40" lean-forward="false" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="425">
+          <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="27" />
           <folding>
             <element signature="e#31#48#0#PHP" expanded="true" />
             <marker date="1536457096416" expanded="true" signature="1318:1364" ph="SELECT * FRO... tb_users" />
@@ -803,36 +879,6 @@
             <marker date="1536457096416" expanded="true" signature="5978:6273" ph="SELECT * FRO... tb_userspasswordsrecoveries" />
             <marker date="1536457096416" expanded="true" signature="6651:6748" ph="UPDATE tb_us... " />
             <marker date="1536457096416" expanded="true" signature="6916:6982" ph="UPDATE tb_us... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5347">
-          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding>
-            <element signature="e#93#108#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/hcodecart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="77" column="5" lean-forward="true" selection-start-line="65" selection-start-column="4" selection-end-line="77" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Cart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1028">
-          <caret line="79" column="5" lean-forward="false" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
-          <folding>
-            <element signature="e#114#132#0#PHP" expanded="true" />
-            <marker date="1536457848506" expanded="true" signature="1202:1259" ph="SELECT * FRO... tb_carts" />
-            <marker date="1536457848506" expanded="true" signature="1513:1558" ph="SELECT * FRO... tb_carts" />
           </folding>
         </state>
       </provider>
