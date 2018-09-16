@@ -12,6 +12,8 @@ class User extends Model {
     const SESSION = "User";
     const SECRET = "Tld717@ft9551th6ap3zq9";
     const IV = "1611871819141829";
+    const ERROR_REGISTER = "UserErrorRegister";
+    const ERROR = "UserError";
 
     public static function getFromSession(){
         $user = new User();
@@ -21,7 +23,8 @@ class User extends Model {
         return $user;
     }
 
-    public static function checkLogin($inadmin = true){
+    public static function checkLogin($inadmin = true)
+    {
         if (
             !isset($_SESSION[User::SESSION])
             ||
@@ -31,11 +34,10 @@ class User extends Model {
         ) {
             //Não está logado
             return false;
-
         } else {
-            if ($inadmin === true && (bool)$_SESSION[User::SESSION]['inadmin'] === true){
-             return true;
-            } else if ($inadmin === false){
+            if ($inadmin === true && (bool)$_SESSION[User::SESSION]['inadmin'] === true) {
+                return true;
+            } else if ($inadmin === false) {
                 return true;
             } else {
                 return false;
@@ -47,25 +49,26 @@ class User extends Model {
         "iduser", "idperson", "deslogin", "despassword", "inadmin", "dtergister"
     ];
 
-    public static function login($login, $password):User
+    public static function login($login, $password)
     {
-        $db = new Sql();
-
-        $results = $db->select("SELECT * FROM tb_users WHERE deslogin = :LOGIN", array(
+        $sql = new Sql();
+        $results = $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b ON a.idperson = b.idperson WHERE a.deslogin = :LOGIN", array(
             ":LOGIN"=>$login
         ));
-        if (count($results) === 0) {
-            throw new \Exception("Não foi possível fazer login.");
+        if (count($results) === 0)
+        {
+            throw new \Exception("Usuário inexistente ou senha inválida.");
         }
         $data = $results[0];
-
-        if (password_verify($password, $data["despassword"])) {
+        if (password_verify($password, $data["despassword"]) === true)
+        {
             $user = new User();
+            $data['desperson'] = utf8_encode($data['desperson']);
             $user->setData($data);
             $_SESSION[User::SESSION] = $user->getValues();
             return $user;
         } else {
-            throw new \Exception("Não foi possível fazer login.");
+            throw new \Exception("Usuário inexistente ou senha inválida.");
         }
     }
 
@@ -77,7 +80,11 @@ class User extends Model {
     public static function verifyLogin($inadmin = true)
     {
         if (!User::checkLogin($inadmin)) {
-            header("Location: /admin/login");
+            if ($inadmin) {
+                header("Location: /admin/login");
+            } else {
+                header("Location: /login");
+            }
             exit;
         }
     }
@@ -90,7 +97,7 @@ class User extends Model {
     public function save(){
         $sql = new Sql();
        $results = $sql->select("CALL sp_users_save (:desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
-            ":desperson"=>$this->getdesperson(),
+            ":desperson"=>utf8_decode($this->getdesperson()),
             ":deslogin"=>$this->getdeslogin(),
             ":despassword"=>password_hash($this->gestdespassword(), PASSWORD_DEFAULT),
             ":desemail"=>$this->getdesemail(),
@@ -105,7 +112,9 @@ class User extends Model {
         $results = $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b USING(idperson) WHERE a.iduser = :iduser ", array(
             ":iduser"=>$iduser
         ));
-        $this->setData($results[0]);
+        $data = $results[0];
+        $data['desperson'] = utf8_encode($data['desperson']);
+        $this->setData($data);
     }
 
     public function update(){
@@ -113,7 +122,7 @@ class User extends Model {
         $sql = new Sql();
         $results = $sql->select("CALL sp_usersupdate_save (:iduser,:desperson,:deslogin,:despassword,:desemail,:nrphone,:inadmin)", array(
             ":iduser"=>$this->getiduser(),
-            ":desperson"=>$this->getdesperson(),
+            ":desperson"=>utf8_decode($this->getdesperson()),
             ":deslogin"=>$this->getdeslogin(),
             ":despassword"=>password_hash($this->getdespassword(), PASSWORD_DEFAULT),
             ":desemail"=>$this->getdesemail(),
@@ -208,6 +217,23 @@ class User extends Model {
 
     }
 
+    public static function setError($msg){
+        $_SESSION[User::ERROR] = $msg;
+    }
+
+    public static function getError(){
+        $msg = (isset($_SESSION[User::ERROR]) && $_SESSION[User::ERROR]) ? $_SESSION[User::ERROR] : '';
+        User::clearError();
+        return $msg;
+    }
+
+    public static function clearError(){
+        $_SESSION[User::ERROR] = NULL;
+    }
+
+    public static function setErrorRegister($msg){
+        $_SESSION[User::ERROR_REGISTER] = $msg;
+    }
 }
 
 ?>
