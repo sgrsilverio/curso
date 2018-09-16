@@ -42,8 +42,26 @@ $app->get('/admin/users', function() {
 
 $app->get('/admin/users/create', function() {
     User::verifyLogin();
+    $error = User::getErrorRegister();
     $page = new PageAdmin();
-    $page->setTpl("users-create");
+    $page->setTpl("users-create",[
+        'errorRegister'=>$error
+    ]);
+});
+
+$app->post('/admin/users/create', function() {
+    User::verifyLogin();
+    $user = new User();
+    $_POST["inadmin"] = (isset($_POST["inadmin"]))?1:0;
+    $user->setData($_POST);
+    if (User::checkLoginExist($_POST['desemail']) === true) {
+        User::setErrorRegister("Esse email já foi cadastrado por outro usuário!");
+        header("Location: /admin/users/create");
+        Exit;
+    }
+    $user->save();
+    header("Location: /admin/users");
+    exit;
 });
 
 
@@ -58,15 +76,7 @@ $app->get('/admin/users/:iduser', function($iduser) {
     ));
 });
 
-$app->post('/admin/users/create', function() {
-    User::verifyLogin();
-    $user = new User();
-    $_POST["inadmin"] = (isset($_POST["inadmin"]))?1:0;
-    $user->setData($_POST);
-    $user->save();
-    header("Location: /admin/users");
-    exit;
-});
+
 
 $app->post('/admin/users/:iduser', function($iduser) {
     User::verifyLogin();
@@ -405,7 +415,13 @@ $app->get("/login", function (){
 
     $page = new Page();
     $page->setTpl("login", [
-        'error'=>User::getError()
+        'error'=>User::getError(),
+        'errorRegister'=>User::getErrorRegister(),
+        'registerValues'=>(isset($_SESSION['registerValues'])) ? $_SESSION['registerValues'] : [
+            'name'=>'',
+            'email'=>'',
+            'phone'=>''
+        ]
         ]);
 });
 
@@ -426,6 +442,65 @@ $app->get("/logout", function (){
     User::logout();
     header("Location: /login");
     exit;
+});
+
+$app->post("/register", function (){
+    $_SESSION['registerValues'] = $_POST;
+
+
+    if (!isset($_POST['name']) || $_POST['name'] == ''){
+        User::setErrorRegister("Preencha o seu nome.");
+        header("Location: /login");
+        Exit;
+
+    }
+
+    if (!isset($_POST['email']) || $_POST['email'] == ''){
+        User::setErrorRegister("Preencha o seu email.");
+        header("Location: /login");
+        Exit;
+
+    }
+
+    if (!isset($_POST['phone']) || $_POST['phone'] == ''){
+        User::setErrorRegister("Preencha o seu telefone.");
+        header("Location: /login");
+        Exit;
+
+    }
+
+    if (!isset($_POST['password']) || strlen($_POST['password']) < 5 ){
+        User::setErrorRegister("A senha deve ser conter no mínimo 5 caracteres! ");
+        header("Location: /login");
+        Exit;
+
+    }
+
+
+
+    if (User::checkLoginExist($_POST['email']) === true ){
+        User::setErrorRegister("Esse email já foi cadastrado por outro usuário!");
+        header("Location: /login");
+
+        Exit;
+
+    }
+
+   $user = new User();
+
+   $user->setData([
+       'inadmin'=>0,
+       'deslogin'=>$_POST['email'],
+       'desperson'=>$_POST['name'],
+       'desemail'=>$_POST['email'],
+       'despassword'=>$_POST['password'],
+       'nrphone'=>$_POST['phone']
+   ]);
+
+      $user->save();
+   User::login($_POST['email'], $_POST['password']);
+   header('Location: /checkout');
+   exit;
 });
 
 

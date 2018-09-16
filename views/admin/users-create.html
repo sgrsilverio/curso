@@ -21,6 +21,11 @@
         <div class="box-header with-border">
           <h3 class="box-title">Novo Usuário</h3>
         </div>
+          {if="$errorRegister != ''"}
+          <div class="alert alert-danger">
+            {$errorRegister}
+          </div>
+          {/if}
         <!-- /.box-header -->
         <!-- form start -->
         <form role="form" action="/admin/users/create" method="post">
