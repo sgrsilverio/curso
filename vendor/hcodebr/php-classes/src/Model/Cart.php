@@ -136,7 +136,7 @@ class Cart extends Model {
         $totals = $this->getProductsTotals();
         if ($totals['vlwidth'] < 11 ) {$totals['vlwidth'] = 11;}
         if ($totals['vlheigth'] < 2 ) {$totals['vlheigth'] = 2;}
-        if ($totals['vllength'] < 16 ) {$totals['vllength'] = 16;}
+        if ($totals['vllength'] < 16 ){$totals['vllength'] = 16;}
 
         if($totals['nrqtd'] > 0) {
             $qs = http_build_query([
@@ -152,7 +152,7 @@ class Cart extends Model {
                 'nVlLargura'=>$totals['vlwidth'],
                 'nVlDiametro'=>0,
                 'sCdMaoPropria'=>'N',
-                'nVlValorDeclarado'=>$totals['vlprice'],
+                'nVlValorDeclarado'=>0,
                 'sCdAvisoRecebimento'=>'S'
             ]);
             $xml = simplexml_load_file("http://ws.correios.com.br/calculador/CalcPrecoPrazo.asmx/CalcPrecoPrazo?".$qs);
@@ -187,7 +187,7 @@ class Cart extends Model {
 
     public static function getMsgError(){
         $msg = (isset($_SESSION[Cart::SESSION_ERROR])) ? $_SESSION[Cart::SESSION_ERROR] : "";
-        Cart::clearMsgError();
+        //Cart::clearMsgError();
         return $msg;
     }
 

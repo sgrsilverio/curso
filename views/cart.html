@@ -80,7 +80,7 @@
                                     <div class="coupon">
                                         <label for="cep">CEP:</label>
                                         <input type="text" placeholder="00000-000" value="{$cart.deszipcode}" id="cep" class="input-text" name="zipcode">
-                                        <input type="submit" formmethod="post" formaction="/cart/freight" value="CÁLCULAR" class="button">
+                                        <input type="submit" formmethod="post" formaction="/cart/freight" value="Cálcular" class="button">
                                     </div>
 
                                 </div>
@@ -93,17 +93,17 @@
                                         <tbody>
                                             <tr class="cart-subtotal">
                                                 <th>Subtotal</th>
-                                                <td><span class="amount">R${function="formatPrice($cart.vlsubtotal)"}</span></td>
+                                                <td><span class="amount">{if="($cart.vlsubtotal) != ''"} R${function="formatPrice($cart.vlsubtotal)"}</span>{/if}</td>
                                             </tr>
 
                                             <tr class="shipping">
                                                 <th>Frete</th>
-                                                <td>R${function="formatPrice($cart.vlfreight)"} {if="$cart.nrdays > 0"}<small>prazo de {$cart.nrdays} dia(s)</small>{/if}</td>
+                                                <td>{if="($cart.vlfreight) != ''"} R${function="formatPrice($cart.vlfreight)"} {if="$cart.nrdays > 0"}<small>prazo de {$cart.nrdays} dia(s)</small>{/if}{/if}</td>
                                             </tr>
 
                                             <tr class="order-total">
                                                 <th>Total</th>
-                                                <td><strong><span class="amount">R${function="formatPrice($cart.vltotal)"}</span></strong> </td>
+                                                <td><strong><span class="amount">{if="($cart.vltotal) != ''"}  R${function="formatPrice($cart.vltotal)"}</span></strong>{/if}</td>
                                             </tr>
                                         </tbody>
                                     </table>

@@ -14,6 +14,7 @@ class User extends Model {
     const IV = "1611871819141829";
     const ERROR_REGISTER = "UserErrorRegister";
     const ERROR = "UserError";
+    const SUCCESS = "Success";
 
     public static function getFromSession(){
         $user = new User();
@@ -258,6 +259,20 @@ class User extends Model {
             ':desemail'=>$login
         ]);
         return (count($results) > 0);
+    }
+
+    public static function setSuccess($msg){
+        $_SESSION[User::SUCCESS] = $msg;
+    }
+
+    public static function getSuccess(){
+        $msg = (isset($_SESSION[User::SUCCESS]) && $_SESSION[User::SUCCESS]) ? $_SESSION[User::SUCCESS] : '';
+        User::clearSuccess();
+        return $msg;
+    }
+
+    public static function clearSuccess(){
+        $_SESSION[User::SUCCESS] = NULL;
     }
 }
 
