@@ -71,6 +71,7 @@ class Cart extends Model {
             ':vlfreight'=>$this->getvlfreight(),
             ':nrdays'=>$this->getnrdays()
         ]);
+
         $this->setData($results[0]);
     }
 
@@ -106,21 +107,22 @@ class Cart extends Model {
 
     public function getProducts(){
         $sql = new Sql();
-        $rows = $sql->select("SELECT b.idproduct, b.desproduct, b.vlprice, b.vlwidth, b.vlheigth, b.vllength, b.vlweight, b.desurl, COUNT(*) AS nrqtd, SUM(b.vlprice) AS vltotal
+        $rows = $sql->select("SELECT b.idproduct, b.desproduct, b.vlprice, b.vlwidth, b.vlheight, b.vllength, b.vlweight, b.desurl, COUNT(*) AS nrqtd, SUM(b.vlprice) AS vltotal
         FROM tb_cartsproducts a
         INNER JOIN tb_products b ON a.idproduct = b.idproduct
         WHERE a.idcart = :idcart AND a.dtremoved is NULL
-        GROUP BY b.idproduct, b.desproduct, b.vlprice, b.vlwidth, b.vlheigth, b.vllength, b.vlweight, b.desurl
+        GROUP BY b.idproduct, b.desproduct, b.vlprice, b.vlwidth, b.vlheight, b.vllength, b.vlweight, b.desurl
         ORDER BY b.desproduct", [
             ':idcart'=>$this->getidcart()
         ]);
+
         return Product::checkList($rows);
     }
 
     public function getProductsTotals(){
     $sql = new Sql();
     $results = $sql->select("SELECT SUM(vlprice) AS vlprice, SUM(vlwidth) AS vlwidth,
-                     SUM(vlheigth) AS vlheigth, SUM(vllength) AS vllength, SUM(vlweight) AS vlweight, COUNT(*) AS nrqtd
+                     SUM(vlheight) AS vlheight, SUM(vllength) AS vllength, SUM(vlweight) AS vlweight, COUNT(*) AS nrqtd
                      FROM tb_products a 
                      INNER JOIN tb_cartsproducts b ON a.idproduct = b.idproduct
                      WHERE b.idcart = :idcart AND dtremoved IS NULL", [
@@ -135,7 +137,7 @@ class Cart extends Model {
         $nrzipcode = str_replace('-', '',$nrzipcode);
         $totals = $this->getProductsTotals();
         if ($totals['vlwidth'] < 11 ) {$totals['vlwidth'] = 11;}
-        if ($totals['vlheigth'] < 2 ) {$totals['vlheigth'] = 2;}
+        if ($totals['vlheight'] < 2 ) {$totals['vlheight'] = 2;}
         if ($totals['vllength'] < 16 ){$totals['vllength'] = 16;}
 
         if($totals['nrqtd'] > 0) {
@@ -148,7 +150,7 @@ class Cart extends Model {
                 'nVlPeso'=>$totals['vlweight'],
                 'nCdFormato'=>1,
                 'nVlComprimento'=>$totals['vllength'],
-                'nVlAltura'=>$totals['vlheigth'],
+                'nVlAltura'=>$totals['vlheight'],
                 'nVlLargura'=>$totals['vlwidth'],
                 'nVlDiametro'=>0,
                 'sCdMaoPropria'=>'N',
@@ -213,5 +215,50 @@ class Cart extends Model {
         $this->setvlsubtotal($totals['vlprice']);
         $this->setvltotal($totals['vlprice'] + $this->getvlfreight());
     }
+
+    public static function removeFromSession(){
+        $_SESSION[Cart::SESSION] = NULL;
+    }
+
+    public static function getCartNotUsed($iduser){
+        $sql = new Sql();
+        $newcart = Cart::getFromSession();
+        $newcart = (int)$newcart->getidcart();
+        $sql->query("UPDATE tb_carts SET iduser = :iduser
+               WHERE idcart = :idcart",[
+            ':iduser'=>$iduser,
+            ':idcart'=>$newcart
+        ]);
+
+        $results = $sql->select("SELECT MAX(tb_carts.idcart) AS idcart FROM tb_carts INNER JOIN tb_cartsproducts
+        ON tb_carts.idcart = tb_cartsproducts.idcart and tb_cartsproducts.dtremoved is null 
+        WHERE tb_carts.idcart NOT IN (
+        SELECT tb_carts.idcart FROM tb_carts
+        INNER JOIN tb_orders
+        ON tb_carts.idcart = tb_orders.idcart)
+        AND tb_carts.iduser = :iduser", [
+            ':iduser'=>$iduser
+        ]);
+
+        if ((int)$results[0]['idcart'] > 0) {
+            $oldcart = (int)$results[0]['idcart'];
+            $sql = new Sql();
+            $sql->query("INSERT INTO tb_cartsproducts (tb_cartsproducts.idcart, tb_cartsproducts.idproduct)
+            SELECT :newcart, idproduct FROM db_ecommerce.tb_cartsproducts
+            where idcart = :oldcart and dtremoved is null;",[
+                ':newcart'=>$newcart,
+                ':oldcart'=>$oldcart
+            ]);
+
+            $sql->query("UPDATE tb_cartsproducts SET dtremoved = NOW()
+               WHERE idcart = :idcart AND dtremoved IS NULL",[
+                ':idcart'=>$oldcart ]);
+
+        }
+
+    }
+
+
+
 
 }

@@ -39,7 +39,7 @@ class Product extends Model {
             ":pdesurl"=>$this->getdesurl()
         ));
 
-        $this->setData($results[0]);
+           $this->setData($results[0]);
 
     }
 
