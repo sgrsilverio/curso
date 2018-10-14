@@ -24,6 +24,52 @@ $app->get('/', function() {
     $page->setTpl("index", ['products'=>Product::checkList($products)]);
 });
 
+$app->get("/admin/users/:iduser/password", function ($iduser){
+    User::verifyLogin();
+    $user = new User();
+    $user->get((int)$iduser);
+    $page = new PageAdmin();
+    $page->setTpl("users-password", [
+        "user"=>$user->getValues(),
+        "msgError"=>User::getError(),
+        "msgSuccess"=>User::getSuccess()
+    ]);
+});
+
+$app->post("/admin/users/:iduser/password", function ($iduser){
+    User::verifyLogin();
+    $user = new User();
+    $user->get((int)$iduser);
+    if(!isset($_POST['despassword']) || $_POST['despassword'] === ''){
+        User::setError("Preencha a nova senha.");
+        header("Location: /admin/users/$iduser/password");
+        exit;
+    }
+    if(!isset($_POST['despassword-confirm']) || $_POST['despassword-confirm'] === ''){
+        User::setError("Confirme a nova senha.");
+        header("Location: /admin/users/$iduser/password");
+        exit;
+    }
+    if($_POST['despassword'] !== $_POST['despassword-confirm']){
+        User::setError("Campos não conferem!");
+        header("Location: /admin/users/$iduser/password");
+        exit;
+    }
+
+    if($_POST['despassword'] !== $_POST['despassword-confirm']){
+        User::setError("Campos não conferem!");
+        header("Location: /admin/users/$iduser/password");
+        exit;
+    }
+
+    $user->setPassword($_POST['despassword'],$iduser);
+    User::setSuccess("Senha alterada com sucesso.");
+    header("Location: /admin/users/$iduser/password");
+    exit;
+
+});
+
+
 $app->get('/admin/users/:iduser/delete', function($iduser) {
     User::verifyLogin();
     $user = new User();
@@ -289,10 +335,29 @@ $app->get("/categories/:idcategory", function ($idcategory){
 
 $app->get("/admin/products", function (){
     User::verifyLogin();
-    $products = Product::listAll();
+    $search = (isset($_GET['search'])) ? $_GET['search'] : "";
+    $page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+    if ($search != '') {
+        $pagination = Product::getPageSearch($search, $page, 10);
+    } else {
+        $pagination = Product::getPage($page, 10);
+    }
+
+
+    $pages = [];
+    for ($x = 0; $x < $pagination['pages']; $x++) {
+        array_push($pages, [
+            'href'=>'/admin/products?'.http_build_query(['page'=>$x+1,'search'=>$search]),'text'=>$x+1
+        ]);
+    }
+
+
     $page= new PageAdmin();
     $page->setTpl("products",[
-        "products"=>$products
+        'products'=>$pagination['data'],
+        'search'=>$search,
+        'pages'=>$pages
+
     ]);
 });
 
@@ -918,9 +983,27 @@ $app->get("/admin/orders/:idorder", function ($idorder){
 
 $app->get("/admin/orders", function(){
     User::verifyLogin();
+    $search = (isset($_GET['search'])) ? $_GET['search'] : "";
+    $page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+    if ($search != '') {
+        $pagination = Order::getPageSearch($search, $page, 5);
+    } else {
+        $pagination = Order::getPage($page, 5);
+    }
+
+
+    $pages = [];
+    for ($x = 0; $x < $pagination['pages']; $x++) {
+        array_push($pages, [
+            'href'=>'/admin/orders?'.http_build_query(['page'=>$x+1,'search'=>$search]),'text'=>$x+1
+        ]);
+    }
+
     $page = new PageAdmin();
     $page->setTpl("orders",[
-        "orders"=>Order::listAll()
+        'orders'=>$pagination['data'],
+        'search'=>$search,
+        'pages'=>$pages
     ]);
 
 

@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/index.php" line="103" />
+    <bookmark url="file://$PROJECT_DIR$/index.php" line="149" />
     <bookmark url="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/User.php" line="258" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b4650e1-aad5-45a4-92cb-c67fd5f1361e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Category.php" afterPath="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Category.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/categories.html" afterPath="$PROJECT_DIR$/views/admin/categories.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Order.php" afterPath="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Order.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Product.php" afterPath="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Product.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/User.php" afterPath="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/orders.html" afterPath="$PROJECT_DIR$/views/admin/orders.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/products.html" afterPath="$PROJECT_DIR$/views/admin/products.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin/users.html" afterPath="$PROJECT_DIR$/views/admin/users.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,10 +27,22 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="218" column="23" lean-forward="false" selection-start-line="218" selection-start-column="23" selection-end-line="218" selection-end-column="23" />
+            <state relative-caret-position="793">
+              <caret line="67" column="9" lean-forward="false" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
               <folding>
                 <element signature="e#93#108#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/admin/users.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="43" column="39" lean-forward="false" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
+              <folding>
+                <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -42,39 +58,78 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="742">
-              <caret line="336" column="5" lean-forward="true" selection-start-line="298" selection-start-column="4" selection-end-line="336" selection-end-column="5" />
+            <state relative-caret-position="1542">
+              <caret line="224" column="0" lean-forward="true" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
               <folding>
                 <element signature="e#31#48#0#PHP" expanded="true" />
                 <element signature="e#4524#4691#0#PHP" expanded="false" />
                 <element signature="e#4697#6399#0#PHP" expanded="false" />
                 <element signature="e#6405#7275#0#PHP" expanded="false" />
-                <marker date="1539540120873" expanded="true" signature="1433:1534" ph="SELECT * FRO... tb_users" />
-                <marker date="1539540120873" expanded="true" signature="2804:2890" ph="select * fro... tb_users" />
-                <marker date="1539540120873" expanded="true" signature="3622:3711" ph="SELECT * FRO... tb_users" />
-                <marker date="1539540120873" expanded="true" signature="4798:4899" ph="SELECT * FRO... tb_persons" />
-                <marker date="1539540120873" expanded="true" signature="6705:7000" ph="SELECT * FRO... tb_userspasswordsrecoveries" />
-                <marker date="1539540120873" expanded="true" signature="7378:7475" ph="UPDATE tb_us... " />
-                <marker date="1539540120873" expanded="true" signature="7643:7709" ph="UPDATE tb_us... " />
-                <marker date="1539540120873" expanded="true" signature="8780:8831" ph="SELECT * FRO... tb_persons" />
-                <marker date="1539540120873" expanded="true" signature="9419:9740" ph="SELECT * FRO... tb_orders" />
-                <marker date="1539540120873" expanded="true" signature="10064:10092" ph="SELECT SQL_C... " />
-                <marker date="1539540120873" expanded="true" signature="10064:10232" ph="SELECT SQL_C... tb_products" />
-                <marker date="1539540120873" expanded="true" signature="10093:10232" ph="SELECT * FRO... tb_users" />
-                <marker date="1539540120873" expanded="true" signature="10721:10986" ph="SELECT SQL_C... tb_users" />
+                <marker date="1539545319637" expanded="true" signature="1433:1534" ph="SELECT * FRO... tb_users" />
+                <marker date="1539545319637" expanded="true" signature="2804:2890" ph="select * fro... tb_users" />
+                <marker date="1539545319637" expanded="true" signature="3622:3711" ph="SELECT * FRO... tb_users" />
+                <marker date="1539545319637" expanded="true" signature="4798:4899" ph="SELECT * FRO... tb_persons" />
+                <marker date="1539545319637" expanded="true" signature="6705:7000" ph="SELECT * FRO... tb_userspasswordsrecoveries" />
+                <marker date="1539545319637" expanded="true" signature="7378:7475" ph="UPDATE tb_us... " />
+                <marker date="1539545319637" expanded="true" signature="7643:7709" ph="UPDATE tb_us... " />
+                <marker date="1539545319637" expanded="true" signature="8813:8864" ph="SELECT * FRO... tb_persons" />
+                <marker date="1539545319637" expanded="true" signature="9452:9773" ph="SELECT * FRO... tb_orders" />
+                <marker date="1539545319637" expanded="true" signature="10097:10125" ph="SELECT SQL_C... " />
+                <marker date="1539545319637" expanded="true" signature="10097:10265" ph="SELECT SQL_C... tb_products" />
+                <marker date="1539545319637" expanded="true" signature="10126:10265" ph="SELECT * FRO... tb_users" />
+                <marker date="1539545319637" expanded="true" signature="10754:11019" ph="SELECT SQL_C... tb_users" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Category.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Product.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Product.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="170" column="5" lean-forward="true" selection-start-line="134" selection-start-column="3" selection-end-line="170" selection-end-column="5" />
+              <folding>
+                <marker date="1539541915286" expanded="true" signature="213:258" ph="select * fro... tb_products" />
+                <marker date="1539541915286" expanded="true" signature="1241:1295" ph="SELECT * FRO... tb_products" />
+                <marker date="1539541915286" expanded="true" signature="1470:1522" ph="DELETE FROM " />
+                <marker date="1539541915286" expanded="true" signature="3274:3330" ph="SELECT * FRO... tb_products" />
+                <marker date="1539541915286" expanded="true" signature="3512:3638" ph="SELECT * FRO... tb_categories" />
+                <marker date="1539541915286" expanded="true" signature="3895:4011" ph="SELECT SQL_C... tb_products" />
+                <marker date="1539541915286" expanded="true" signature="4500:4658" ph="SELECT SQL_C... tb_products" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Order.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Order.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="146" column="50" lean-forward="true" selection-start-line="146" selection-start-column="50" selection-end-line="146" selection-end-column="50" />
+              <folding>
+                <element signature="e#33#50#0#PHP" expanded="true" />
+                <marker date="1539542951159" expanded="true" signature="863:1186" ph="SELECT * FRO... tb_orders" />
+                <marker date="1539542951159" expanded="true" signature="1428:1435" ph="SELECT idord... tb_orders" />
+                <marker date="1539542951159" expanded="true" signature="1428:1496" ph="SELECT max(i... tb_orders" />
+                <marker date="1539542951159" expanded="true" signature="1738:2061" ph="SELECT * FRO... tb_orders" />
+                <marker date="1539542951159" expanded="true" signature="2183:2241" ph="UPDATE tb_or... " />
+                <marker date="1539542951159" expanded="true" signature="3396:3424" ph="SELECT SQL_C... " />
+                <marker date="1539542951159" expanded="true" signature="3396:3775" ph="SELECT SQL_C... tb_orders" />
+                <marker date="1539542951159" expanded="true" signature="3433:3775" ph="SELECT * FRO... tb_orders" />
+                <marker date="1539542951159" expanded="true" signature="4264:4713" ph="SELECT SQL_C... tb_orders" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Category.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Category.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="139" column="42" lean-forward="false" selection-start-line="139" selection-start-column="42" selection-end-line="139" selection-end-column="42" />
+            <state relative-caret-position="467">
+              <caret line="152" column="5" lean-forward="true" selection-start-line="116" selection-start-column="3" selection-end-line="152" selection-end-column="5" />
               <folding>
                 <marker date="1539541175073" expanded="true" signature="214:262" ph="select * fro... tb_categories" />
                 <marker date="1539541175073" expanded="true" signature="714:772" ph="SELECT * FRO... tb_categories" />
@@ -104,10 +159,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sig out</find>
-      <find>dtergister</find>
-      <find>set</find>
-      <find>sess</find>
       <find>iduser</find>
       <find>email</find>
       <find>password_verify</find>
@@ -133,6 +184,11 @@
       <find>$cart-&gt;save</find>
       <find>/login</find>
       <find>/check</find>
+      <find>/admin/cat</find>
+      <find>/admin/categ</find>
+      <find>/admin/prod</find>
+      <find>/admin/orders</find>
+      <find>/admin/users</find>
     </findStrings>
     <replaceStrings>
       <replace>mail</replace>
@@ -175,18 +231,18 @@
         <option value="$PROJECT_DIR$/views/checkout.html" />
         <option value="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Address.php" />
         <option value="$PROJECT_DIR$/views/profile-orders.html" />
-        <option value="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Product.php" />
         <option value="$PROJECT_DIR$/views/header.html" />
         <option value="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Cart.php" />
         <option value="$PROJECT_DIR$/views/profile-menu.html" />
         <option value="$PROJECT_DIR$/views/admin/header.html" />
         <option value="$PROJECT_DIR$/functions.php" />
         <option value="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/OrderStatus.php" />
+        <option value="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Category.php" />
+        <option value="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Product.php" />
         <option value="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Order.php" />
         <option value="$PROJECT_DIR$/views/admin/users.html" />
         <option value="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/User.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Category.php" />
       </list>
     </option>
   </component>
@@ -198,10 +254,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="684" />
-    <option name="y" value="141" />
-    <option name="width" value="1586" />
-    <option name="height" value="804" />
+    <option name="x" value="-11" />
+    <option name="y" value="-11" />
+    <option name="width" value="1942" />
+    <option name="height" value="1042" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -386,15 +442,15 @@
       <workItem from="1539019893971" duration="11115000" />
       <workItem from="1539367594007" duration="21637000" />
       <workItem from="1539452812915" duration="3214000" />
-      <workItem from="1539467600267" duration="11050000" />
+      <workItem from="1539467600267" duration="15275000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="297597000" />
+    <option name="totallyTimeSpent" value="301822000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="684" y="141" width="1586" height="804" extended-state="0" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26145834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -612,20 +668,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="78" column="25" lean-forward="false" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
-          <folding>
-            <marker date="1539380971849" expanded="true" signature="213:258" ph="select * fro... tb_products" />
-            <marker date="1539380971849" expanded="true" signature="1241:1295" ph="SELECT * FRO... tb_products" />
-            <marker date="1539380971849" expanded="true" signature="1470:1522" ph="DELETE FROM " />
-            <marker date="1539380971849" expanded="true" signature="3274:3330" ph="SELECT * FRO... tb_products" />
-            <marker date="1539380971849" expanded="true" signature="3512:3638" ph="SELECT * FRO... tb_categories" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/profile-menu.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -721,21 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-          <folding>
-            <element signature="e#33#50#0#PHP" expanded="true" />
-            <marker date="1539473468173" expanded="true" signature="863:1186" ph="SELECT * FRO... tb_orders" />
-            <marker date="1539473468173" expanded="true" signature="1428:1435" ph="SELECT idord... tb_orders" />
-            <marker date="1539473468173" expanded="true" signature="1428:1496" ph="SELECT max(i... tb_orders" />
-            <marker date="1539473468173" expanded="true" signature="1738:2061" ph="SELECT * FRO... tb_orders" />
-            <marker date="1539473468173" expanded="true" signature="2183:2241" ph="UPDATE tb_or... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/admin/header.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5250">
@@ -768,14 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/users.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="53" column="23" lean-forward="true" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/Curso Hcode/tpl-categories/categories.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -784,46 +803,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="218" column="23" lean-forward="false" selection-start-line="218" selection-start-column="23" selection-end-line="218" selection-end-column="23" />
-          <folding>
-            <element signature="e#93#108#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="742">
-          <caret line="336" column="5" lean-forward="true" selection-start-line="298" selection-start-column="4" selection-end-line="336" selection-end-column="5" />
-          <folding>
-            <element signature="e#31#48#0#PHP" expanded="true" />
-            <element signature="e#4524#4691#0#PHP" expanded="false" />
-            <element signature="e#4697#6399#0#PHP" expanded="false" />
-            <element signature="e#6405#7275#0#PHP" expanded="false" />
-            <marker date="1539540120873" expanded="true" signature="1433:1534" ph="SELECT * FRO... tb_users" />
-            <marker date="1539540120873" expanded="true" signature="2804:2890" ph="select * fro... tb_users" />
-            <marker date="1539540120873" expanded="true" signature="3622:3711" ph="SELECT * FRO... tb_users" />
-            <marker date="1539540120873" expanded="true" signature="4798:4899" ph="SELECT * FRO... tb_persons" />
-            <marker date="1539540120873" expanded="true" signature="6705:7000" ph="SELECT * FRO... tb_userspasswordsrecoveries" />
-            <marker date="1539540120873" expanded="true" signature="7378:7475" ph="UPDATE tb_us... " />
-            <marker date="1539540120873" expanded="true" signature="7643:7709" ph="UPDATE tb_us... " />
-            <marker date="1539540120873" expanded="true" signature="8780:8831" ph="SELECT * FRO... tb_persons" />
-            <marker date="1539540120873" expanded="true" signature="9419:9740" ph="SELECT * FRO... tb_orders" />
-            <marker date="1539540120873" expanded="true" signature="10064:10092" ph="SELECT SQL_C... " />
-            <marker date="1539540120873" expanded="true" signature="10064:10232" ph="SELECT SQL_C... tb_products" />
-            <marker date="1539540120873" expanded="true" signature="10093:10232" ph="SELECT * FRO... tb_users" />
-            <marker date="1539540120873" expanded="true" signature="10721:10986" ph="SELECT SQL_C... tb_users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Category.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="139" column="42" lean-forward="false" selection-start-line="139" selection-start-column="42" selection-end-line="139" selection-end-column="42" />
+        <state relative-caret-position="467">
+          <caret line="152" column="5" lean-forward="true" selection-start-line="116" selection-start-column="3" selection-end-line="152" selection-end-column="5" />
           <folding>
             <marker date="1539541175073" expanded="true" signature="214:262" ph="select * fro... tb_categories" />
             <marker date="1539541175073" expanded="true" signature="714:772" ph="SELECT * FRO... tb_categories" />
@@ -837,6 +820,87 @@
             <marker date="1539541175073" expanded="true" signature="3512:3790" ph="SELECT SQL_C... tb_products" />
             <marker date="1539541175073" expanded="true" signature="4339:4458" ph="SELECT SQL_C... tb_categories" />
             <marker date="1539541175073" expanded="true" signature="4947:5109" ph="SELECT SQL_C... tb_categories" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="170" column="5" lean-forward="true" selection-start-line="134" selection-start-column="3" selection-end-line="170" selection-end-column="5" />
+          <folding>
+            <marker date="1539541915286" expanded="true" signature="213:258" ph="select * fro... tb_products" />
+            <marker date="1539541915286" expanded="true" signature="1241:1295" ph="SELECT * FRO... tb_products" />
+            <marker date="1539541915286" expanded="true" signature="1470:1522" ph="DELETE FROM " />
+            <marker date="1539541915286" expanded="true" signature="3274:3330" ph="SELECT * FRO... tb_products" />
+            <marker date="1539541915286" expanded="true" signature="3512:3638" ph="SELECT * FRO... tb_categories" />
+            <marker date="1539541915286" expanded="true" signature="3895:4011" ph="SELECT SQL_C... tb_products" />
+            <marker date="1539541915286" expanded="true" signature="4500:4658" ph="SELECT SQL_C... tb_products" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/Order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="146" column="50" lean-forward="true" selection-start-line="146" selection-start-column="50" selection-end-line="146" selection-end-column="50" />
+          <folding>
+            <element signature="e#33#50#0#PHP" expanded="true" />
+            <marker date="1539542951159" expanded="true" signature="863:1186" ph="SELECT * FRO... tb_orders" />
+            <marker date="1539542951159" expanded="true" signature="1428:1435" ph="SELECT idord... tb_orders" />
+            <marker date="1539542951159" expanded="true" signature="1428:1496" ph="SELECT max(i... tb_orders" />
+            <marker date="1539542951159" expanded="true" signature="1738:2061" ph="SELECT * FRO... tb_orders" />
+            <marker date="1539542951159" expanded="true" signature="2183:2241" ph="UPDATE tb_or... " />
+            <marker date="1539542951159" expanded="true" signature="3396:3424" ph="SELECT SQL_C... " />
+            <marker date="1539542951159" expanded="true" signature="3396:3775" ph="SELECT SQL_C... tb_orders" />
+            <marker date="1539542951159" expanded="true" signature="3433:3775" ph="SELECT * FRO... tb_orders" />
+            <marker date="1539542951159" expanded="true" signature="4264:4713" ph="SELECT SQL_C... tb_orders" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/users.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="43" column="39" lean-forward="false" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="793">
+          <caret line="67" column="9" lean-forward="false" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
+          <folding>
+            <element signature="e#93#108#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/hcodebr/php-classes/src/Model/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1542">
+          <caret line="224" column="0" lean-forward="true" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
+          <folding>
+            <element signature="e#31#48#0#PHP" expanded="true" />
+            <element signature="e#4524#4691#0#PHP" expanded="false" />
+            <element signature="e#4697#6399#0#PHP" expanded="false" />
+            <element signature="e#6405#7275#0#PHP" expanded="false" />
+            <marker date="1539545319637" expanded="true" signature="1433:1534" ph="SELECT * FRO... tb_users" />
+            <marker date="1539545319637" expanded="true" signature="2804:2890" ph="select * fro... tb_users" />
+            <marker date="1539545319637" expanded="true" signature="3622:3711" ph="SELECT * FRO... tb_users" />
+            <marker date="1539545319637" expanded="true" signature="4798:4899" ph="SELECT * FRO... tb_persons" />
+            <marker date="1539545319637" expanded="true" signature="6705:7000" ph="SELECT * FRO... tb_userspasswordsrecoveries" />
+            <marker date="1539545319637" expanded="true" signature="7378:7475" ph="UPDATE tb_us... " />
+            <marker date="1539545319637" expanded="true" signature="7643:7709" ph="UPDATE tb_us... " />
+            <marker date="1539545319637" expanded="true" signature="8813:8864" ph="SELECT * FRO... tb_persons" />
+            <marker date="1539545319637" expanded="true" signature="9452:9773" ph="SELECT * FRO... tb_orders" />
+            <marker date="1539545319637" expanded="true" signature="10097:10125" ph="SELECT SQL_C... " />
+            <marker date="1539545319637" expanded="true" signature="10097:10265" ph="SELECT SQL_C... tb_products" />
+            <marker date="1539545319637" expanded="true" signature="10126:10265" ph="SELECT * FRO... tb_users" />
+            <marker date="1539545319637" expanded="true" signature="10754:11019" ph="SELECT SQL_C... tb_users" />
           </folding>
         </state>
       </provider>
