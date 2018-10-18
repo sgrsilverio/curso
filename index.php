@@ -776,7 +776,7 @@ $app->get("/boleto/:idorder", function ($idorder){
     $data_venc = date("d/m/Y", time() + ($dias_de_prazo_para_pagamento * 86400));  // Prazo de X dias OU informe data: "13/04/2006";
     $valor_cobrado = formatPrice($order->getvltotal()); // Valor - REGRA: Sem pontos na milhar e tanto faz com "." ou "," ou com 1 ou 2 ou sem casa decimal
     $valor_cobrado = str_replace(",", ".",$valor_cobrado);
-    $valor_boleto=number_format($order->getvltotal() + $taxa_boleto, 2, ',', '');
+    $valor_boleto=number_format($order->getvltotal() , 2, ',', '');
 
     $dadosboleto["nosso_numero"] = $order->getidorder();  // Nosso numero - REGRA: Máximo de 8 caracteres!
     $dadosboleto["numero_documento"] = $order->getidorder();	// Num do pedido ou nosso numero
@@ -811,9 +811,9 @@ $app->get("/boleto/:idorder", function ($idorder){
 
 
 // DADOS DA SUA CONTA - ITAÚ
-    $dadosboleto["agencia"] = "1690"; // Num da agencia, sem digito
-    $dadosboleto["conta"] = "48781";	// Num da conta, sem digito
-    $dadosboleto["conta_dv"] = "2"; 	// Digito do Num da conta
+    $dadosboleto["agencia"] = "0000"; // Num da agencia, sem digito
+    $dadosboleto["conta"] = "00000";	// Num da conta, sem digito
+    $dadosboleto["conta_dv"] = "0"; 	// Digito do Num da conta
 
 // DADOS PERSONALIZADOS - ITAÚ
     $dadosboleto["carteira"] = "175";  // Código da Carteira: pode ser 175, 174, 104, 109, 178, ou 157
