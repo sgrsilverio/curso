@@ -456,15 +456,16 @@ $app->get("/products/:desurl", function ($desurl){
 
 $app->get("/cart", function (){
 
-
     $cart = Cart::getFromSession();
     $page = new Page();
+    $cart->getValues();
 
     $page->setTpl("cart", [
         'cart'=>$cart->getValues(),
         'products'=>$cart->getProducts(),
         'error'=>Cart::getMsgError()
     ]);
+
 });
 
 $app->get("/cart/:idproduct/add", function ($idproduct){
@@ -506,9 +507,12 @@ $app->post("/cart/freight", function (){
 });
 
 $app->get("/checkout", function (){
+
    $cart = Cart::getFromSession();
+
    User::verifyLogin(false);
    $address = new Address();
+
 
    if (isset($_GET['zipcode'])){
        $address->loadFromCEP($_GET['zipcode']);
@@ -517,66 +521,82 @@ $app->get("/checkout", function (){
        $cart->getCalculateTotal();
    }
 
-
-
-
    if (!$address->getdesaddress()) $address->setdesaddress('');
+   if (!$address->getdesdesnumber()) $address->setdesnumber('');
    if (!$address->getdescomplement()) $address->setdescomplement('');
    if (!$address->getdesdistrict()) $address->setdesdistrict('');
    if (!$address->getdescity()) $address->setdescity('');
    if (!$address->getdesstate()) $address->setdesstate('');
    if (!$address->getdescountry()) $address->setdescountry('');
    if (!$address->getdeszipcode()) $address->setdeszipcode('');
-   if (Cart::getMsgError() !== '') {
+
+
+    if (Cart::getMsgError() !== '') {
+
         header("Location: /checkout");
         exit;
-   };
+    };
+
+
+
    $page = new Page();
    $page->setTpl("checkout", [
         'cart'=>$cart->getValues(),
         'address'=>$address->getValues(),
         'products'=>$cart->getProducts(),
-        'error'=>Cart::getMsgError()
+        'error'=>Address::getMsgError()
         ]);
 });
 
 
 $app->post("/checkout", function (){
     User::verifyLogin(false);
+
+
     if (!isset($_POST['zipcode']) || $_POST['zipcode'] === '') {
         Address::setMsgError("informe o Cep!");
+
         header("Location: /checkout");
         exit;
     }
     if (!isset($_POST['desaddress']) || $_POST['desaddress'] === '') {
         Address::setMsgError("informe o endereço!");
+
         header("Location: /checkout");
         exit;
     }
     if (!isset($_POST['desdistrict']) || $_POST['desdistrict'] === '') {
         Address::setMsgError("informe o distrito!");
+
         header("Location: /checkout");
         exit;
     }
     if (!isset($_POST['descity']) || $_POST['descity'] === '') {
         Address::setMsgError("informe o Cep!");
+
         header("Location: /checkout");
         exit;
     }
 
     if (!isset($_POST['desstate']) || $_POST['desstate'] === '') {
         Address::setMsgError("informe o estado!");
+
         header("Location: /checkout");
         exit;
     }
 
     if (!isset($_POST['descountry']) || $_POST['descountry'] === '') {
         Address::setMsgError("informe o pais!");
+
         header("Location: /checkout");
         exit;
     }
 
-    Address::clearMsgError();
+    if (!isset($_POST['desnumber']) || $_POST['desnumber'] === '') {
+        Address::setMsgError("informe o numero!");
+        header("Location: /checkout");
+        exit;
+    }
 
     $user = User::getFromSession();
     $address = new Address();
@@ -584,10 +604,9 @@ $app->post("/checkout", function (){
     $_POST['idperson'] = $user->getidperson();
     $address->setData($_POST);
 
+    Address::clearMsgError();
+
     $address->save();
-
-    //está criando novos address sempre, o que faz com novas ordens de pagamento sejam criadas continuamente quando se atualiza a tela.
-
 
     $cart = Cart::getFromSession();
     $totals = $cart->getValues();
@@ -603,11 +622,70 @@ $app->post("/checkout", function (){
     ]);
 
     $order->save();
-    //é necessário renovar o carrinho de compras para que após a finalização
-    // da ordem de compra não seja mais possivel atualizar os dados do carrino
-    header("Location: /order/" . $order->getidorder());
+
+    switch ((int)$_POST['payment-method']) {
+        case 1:
+            header("Location: /order/" . $order->getidorder()."/pagseguro");
+        break;
+
+        case 2:
+            header("Location: /order/" . $order->getidorder()."/paypal");
+        break;
+    }
+
+
     exit;
 });
+
+$app->get("/order/:idorder/pagseguro", function ($idorder){
+    User::verifyLogin(false);
+    $order = new Order();
+    $order->get((int)$idorder);
+    $cart = $order->getCart();
+    $page = new Page();
+
+
+
+    $page->setTpl("payment-pagseguro", [
+        'order'=>$order->getValues(),
+        'cart'=>$cart->getValues(),
+        'products'=>$cart->getProducts(),
+        'phone'=>[
+            'areaCode'=>substr($order->getnrphone(),0,2),
+            'number'=>substr($order->getnrphone(),2,strlen($order->getnrphone()))
+        ]
+
+    ]);
+
+    session_regenerate_id();
+    $_SESSION["Cart"] = NULL;
+
+});
+
+$app->get("/order/:idorder/paypal", function ($idorder){
+    User::verifyLogin(false);
+    $order = new Order();
+    $order->get((int)$idorder);
+    $cart = $order->getCart();
+    $page = new Page();
+
+
+    $frete = (($order->getvlfreight()) / ($cart->getTotalItensCart()));
+    $frete = round($frete,2);
+
+    $page->setTpl("payment-paypal", [
+        'order'=>$order->getValues(),
+        'cart'=>$cart->getValues(),
+        'products'=>$cart->getProducts(),
+        'frete'=>$frete
+
+    ]);
+
+    session_regenerate_id();
+    $_SESSION["Cart"] = NULL;
+
+});
+
 
 $app->get("/login", function (){
 

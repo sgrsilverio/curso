@@ -185,11 +185,12 @@ class Cart extends Model {
 
     public static function setMsgError($msg){
         $_SESSION[Cart::SESSION_ERROR] = $msg;
+
     }
 
     public static function getMsgError(){
         $msg = (isset($_SESSION[Cart::SESSION_ERROR])) ? $_SESSION[Cart::SESSION_ERROR] : "";
-        //Cart::clearMsgError();
+        Cart::clearMsgError();
         return $msg;
     }
 
@@ -218,6 +219,14 @@ class Cart extends Model {
 
     public static function removeFromSession(){
         $_SESSION[Cart::SESSION] = NULL;
+    }
+
+    public function getTotalItensCart(){
+        $sql = new Sql();
+        $results = $sql->select("SELECT count(idproduct) as qtd FROM db_ecommerce.tb_cartsproducts WHERE idcart = :idcart and dtremoved is null;",[
+            ':idcart'=>$this->getidcart()
+        ]);
+        return ((int)$results[0]['qtd']);
     }
 
     public static function getCartNotUsed($iduser){
@@ -256,7 +265,11 @@ class Cart extends Model {
 
         }
 
+
+
     }
+
+
 
 
 
