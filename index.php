@@ -169,7 +169,11 @@ $app->get('/admin/login', function() {
         "header"=>false,
         "footer"=>false
     ]);
-    $page->setTpl("login");
+
+    $error = User::getError();
+    $page->setTpl("login",[
+        "error"=>$error
+    ]);
 });
 
 $app->post('/admin/login',function (){
@@ -457,8 +461,10 @@ $app->get("/products/:desurl", function ($desurl){
 $app->get("/cart", function (){
 
     $cart = Cart::getFromSession();
+
     $page = new Page();
     $cart->getValues();
+
 
     $page->setTpl("cart", [
         'cart'=>$cart->getValues(),
@@ -509,6 +515,8 @@ $app->post("/cart/freight", function (){
 $app->get("/checkout", function (){
 
    $cart = Cart::getFromSession();
+
+   $cart->getValues();
 
    User::verifyLogin(false);
    $address = new Address();
@@ -633,7 +641,6 @@ $app->post("/checkout", function (){
         break;
     }
 
-
     exit;
 });
 
@@ -644,12 +651,15 @@ $app->get("/order/:idorder/pagseguro", function ($idorder){
     $cart = $order->getCart();
     $page = new Page();
 
+    $frete = (($order->getvlfreight()) / ($cart->getTotalItensCart()));
+    $frete = round($frete,2);
 
 
     $page->setTpl("payment-pagseguro", [
         'order'=>$order->getValues(),
         'cart'=>$cart->getValues(),
         'products'=>$cart->getProducts(),
+        'frete'=>$frete,
         'phone'=>[
             'areaCode'=>substr($order->getnrphone(),0,2),
             'number'=>substr($order->getnrphone(),2,strlen($order->getnrphone()))

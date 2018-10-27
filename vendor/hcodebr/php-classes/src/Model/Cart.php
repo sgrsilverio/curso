@@ -139,6 +139,11 @@ class Cart extends Model {
         if ($totals['vlwidth'] < 11 ) {$totals['vlwidth'] = 11;}
         if ($totals['vlheight'] < 2 ) {$totals['vlheight'] = 2;}
         if ($totals['vllength'] < 16 ){$totals['vllength'] = 16;}
+        if ($totals['vlprice'] > 3000 ){
+            $nVlValorDeclarado = 3000;
+        } else {
+            $nVlValorDeclarado = $totals['vlprice'];
+        }
 
         if($totals['nrqtd'] > 0) {
             $qs = http_build_query([
@@ -154,7 +159,7 @@ class Cart extends Model {
                 'nVlLargura'=>$totals['vlwidth'],
                 'nVlDiametro'=>0,
                 'sCdMaoPropria'=>'N',
-                'nVlValorDeclarado'=>0,
+                'nVlValorDeclarado'=>$nVlValorDeclarado,
                 'sCdAvisoRecebimento'=>'S'
             ]);
             $xml = simplexml_load_file("http://ws.correios.com.br/calculador/CalcPrecoPrazo.asmx/CalcPrecoPrazo?".$qs);
@@ -169,8 +174,11 @@ class Cart extends Model {
 
             $this->setnrdays($result->PrazoEntrega);
             $this->setvlfreight(Cart::formatValueToDecimal($result->Valor));
+
             $this->setdeszipcode($nrzipcode);
+
             $this->save();
+
             return $result;
         } else {
 
@@ -238,7 +246,7 @@ class Cart extends Model {
             ':iduser'=>$iduser,
             ':idcart'=>$newcart
         ]);
-
+        //busca o ultimo carrinho com produtos não excluidos
         $results = $sql->select("SELECT MAX(tb_carts.idcart) AS idcart FROM tb_carts INNER JOIN tb_cartsproducts
         ON tb_carts.idcart = tb_cartsproducts.idcart and tb_cartsproducts.dtremoved is null 
         WHERE tb_carts.idcart NOT IN (
@@ -249,6 +257,7 @@ class Cart extends Model {
             ':iduser'=>$iduser
         ]);
 
+        //insere os produtos do antigo carrinho no novo carrinho
         if ((int)$results[0]['idcart'] > 0) {
             $oldcart = (int)$results[0]['idcart'];
             $sql = new Sql();
@@ -258,6 +267,23 @@ class Cart extends Model {
                 ':newcart'=>$newcart,
                 ':oldcart'=>$oldcart
             ]);
+
+            //copia o deszipcode do antigo carrinho
+            $olddeszipcode = $sql->select("SELECT deszipcode FROM tb_carts WHERE idcart = :idcart;", [
+                ':idcart'=>$oldcart
+                ]);
+
+            //atualiza o cep do novo carrinho
+            if ((int)$olddeszipcode[0]['deszipcode'] > 0) {
+
+                $sql->query("UPDATE tb_carts SET deszipcode = :olddeszipcode
+               WHERE idcart = :idcart ",[
+                   ':olddeszipcode'=>(int)$olddeszipcode[0]['deszipcode'],
+                   ':idcart'=>$newcart
+                ]);
+
+            }
+
 
             $sql->query("UPDATE tb_cartsproducts SET dtremoved = NOW()
                WHERE idcart = :idcart AND dtremoved IS NULL",[

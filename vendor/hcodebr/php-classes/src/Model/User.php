@@ -58,10 +58,15 @@ class User extends Model {
         ));
         if (count($results) === 0)
         {
-            throw new \Exception("Usuário inexistente ou senha inválida.");
+            //throw new \Exception("Usuário inexistente ou senha inválida.");
+            header("Location: /admin/login");
+            User::setError("Usuário inexistente ou senha inválida.");
+            exit;
         }
         $data = $results[0];
-        if (password_verify($password, $data["despassword"]) === true)
+
+
+        if ( password_verify($password,$data["despassword"]) === true)
         {
             $user = new User();
             $data['desperson'] = utf8_encode($data['desperson']);
@@ -73,7 +78,10 @@ class User extends Model {
             }
             return $user;
         } else {
-            throw new \Exception("Usuário inexistente ou senha inválida.");
+
+            //throw new \Exception("Usuário inexistente ou senha inválida.");
+            header("Location: /admin/login");
+            User::setError("Usuário inexistente ou senha inválida.");
         }
     }
 
@@ -102,14 +110,17 @@ class User extends Model {
     public function save(){
 
             $sql = new Sql();
+
+
             $results = $sql->select("CALL sp_users_save (:desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
                 ":desperson" => utf8_decode($this->getdesperson()),
                 ":deslogin" => $this->getdeslogin(),
-                ":despassword" => password_hash($this->gestdespassword(), PASSWORD_DEFAULT),
+                ":despassword" => password_hash($this->getdespassword(),PASSWORD_DEFAULT),
                 ":desemail" => $this->getdesemail(),
                 ":nrphone" => $this->getnrphone(),
                 ":inadmin" => $this->getinadmin()
             ));
+
 
             $this->setData($results[0]);
 
@@ -219,7 +230,7 @@ class User extends Model {
 
         $sql = new Sql();
         $sql->query("UPDATE tb_users SET despassword = :password WHERE iduser = :iduser", array(
-                        ":password"=>password_hash($password, PASSWORD_DEFAULT),
+                        ":password"=>password_hash($password,PASSWORD_DEFAULT),
                         ":iduser"=>$iduser
         ));
 
@@ -288,7 +299,7 @@ class User extends Model {
         INNER JOIN tb_users d ON d.iduser = a.iduser
         INNER JOIN tb_addresses e USING(idaddress)
         INNER JOIN tb_persons f ON f.idperson = d.idperson
-        WHERE a.iduser = :iduser", [
+        WHERE a.iduser = :iduser ORDER BY a.idorder DESC", [
             ':iduser'=>$this->getiduser()
         ]);
         if (count($results) > 0 ){
